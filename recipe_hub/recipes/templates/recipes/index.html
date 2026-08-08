@@ -1,0 +1,32 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            {% for recipe in recipes %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                        <hr>
+                        {% if recipe.image %}
+                            <img src="{{ recipe.image.url }}" alt="comida.png" class="card-img-top">
+                        {% else %}
+                            <p>Sem foto</p>
+                        {% endif %}
+                        <hr>
+                        <p class="card-text">{{ recipe.ingredients }}</p>
+                        <p class="card-text">{{ recipe.instructions }}</p>
+                        <p class="card-text">{{ recipe.prep_time }} Minutos</p>
+                    </div>
+                </div>
+
+            {% empty %}
+                <ul>
+                    <li class="text-danger">Nenhuma Receita cadastrada</li>
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

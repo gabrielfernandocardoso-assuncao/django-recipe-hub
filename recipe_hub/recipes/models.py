@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class recipe(models.Model):
+class Recipe(models.Model):
     # title
     title = models.CharField(max_length=200)
     # ingredients
